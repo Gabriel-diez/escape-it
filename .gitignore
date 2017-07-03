@@ -20,6 +20,7 @@ db/schema.rb
 .DS_Store
 
 .idea
+escape-it.iml
 
 ### Rails ###
 *.rbc
