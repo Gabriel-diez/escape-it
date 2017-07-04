@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Games</h1>
+<h1>Mes parties</h1>
 <% @games.each do |game| %>
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= game.name %></h3>
+  <div class="panel panel-default">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow=<%= game.total_steps_success %> aria-valuemin="0" aria-valuemax=<%= game.total_steps %> style=<%= "width:#{game.success_percentage}%" %>>
+    </div>
     </div>
     <div class="panel-body">
-      <div class="progress">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow=<%= game.total_steps_success %> aria-valuemin="0" aria-valuemax=<%= game.total_steps %> style=<%= "width:#{game.success_percentage}%" %>>
-        </div>
-      </div>
+      <h3 class="panel-title"><%= game.name %></h3>
     </div>
     <div class="panel-footer">
-      <%= link_to 'Show', game %>
-      <%= link_to 'Edit', edit_game_path(game) %>
-      <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <div class="text-right">
+        <%= link_to '', game, :class => "glyphicon glyphicon-search" %>
+        <%= link_to '', edit_game_path(game), :class => "glyphicon glyphicon-pencil" %>
+        <%= link_to '', game, method: :delete, data: { confirm: 'Are you sure?' }, :class => "glyphicon glyphicon-removehg" %>
+      </div>
     </div>
   </div>
 <% end %>
