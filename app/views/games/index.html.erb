@@ -21,10 +21,10 @@
     </div>
     <div class="panel-footer">
       <div class="pull-left">
-        <%= link_to '', game_start_path(game), :class => "btn glyphicon glyphicon-triangle-right", remote: true, method: :post %>
         <%= link_to 'Ajouter une étape', new_game_step_path(game_id: game.id) %>
       </div>
-      <div class="pull-right">
+      <div class="pull-right game-icon">
+        <%= link_to '', game_start_path(game), :class => "glyphicon glyphicon-triangle-right", remote: true, method: :post, title: 'Start', alt: 'Start' %>
         <%= link_to '', game_reset_path(game), method: :post, :class => "glyphicon glyphicon-repeat", title: 'Reinitialiser', alt: 'Reinitialiser' %>
         <%= link_to '', edit_game_path(game), :class => "glyphicon glyphicon-pencil", title: 'Editer', alt: 'Editer' %>
         <%= link_to '', game, method: :delete, data: { confirm: 'Are you sure?' }, :class => "glyphicon glyphicon-remove", title: 'Supprimer', alt: 'Supprimer' %>
