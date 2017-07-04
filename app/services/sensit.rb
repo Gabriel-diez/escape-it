@@ -13,7 +13,7 @@ class Sensit
   end
 
   def authenticate(code)
-    save process("#{Sensit::PATHS[:token]}grant_type=authorization_code&code=#{code}&client_id=#{@user.client_id}&redirect_uri=http://localhost:3000/callback")
+    save process("#{Sensit::PATHS[:token]}grant_type=authorization_code&code=#{code}&client_id=#{@user.client_id}&redirect_uri=#{callback_url}")
   end
 
   def refresh
