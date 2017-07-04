@@ -31,6 +31,7 @@ class Game < ApplicationRecord
       step.devices.each { |device| Sensit.new(user).create_notification(device) }
     end
     self.update(started: true)
+  end
 
   def reset
     steps.update_all(finished: false)
