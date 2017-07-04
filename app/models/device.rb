@@ -11,6 +11,7 @@
 #  device_id       :integer
 #  is_ok           :boolean          default(FALSE)
 #  value           :string
+#  sensor_type     :string
 #
 
 class Device < ApplicationRecord

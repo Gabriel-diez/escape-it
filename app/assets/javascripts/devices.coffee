@@ -1,6 +1,7 @@
 Device = 
 	init: ->
-		this.fetch_sensors_list()
+		if $('#device_device_id').length
+			this.fetch_sensors_list()
 		$(document).on 'change', '#device_device_id', this.fetch_sensors_list
 		$(document).on 'change', '#device_sensor_id', this.update_sensor_type
 
