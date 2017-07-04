@@ -15,12 +15,6 @@ $navbar-main-color:                      lighten($nav-blue-indigo, 15%) !default
 $navbar-main-bg:                         #222 !default;
 $navbar-main-border:                     darken($navbar-main-color, 30%) !default;
 
-.navbar-main,.btn {
-  background-color: $nav-blue-indigo;
-  border-color: $template-dark;
-  color: whitesmoke !important;
-}
-
 .navbar-brand {
   color: whitesmoke !important;
 }
