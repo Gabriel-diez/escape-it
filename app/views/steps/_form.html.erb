@@ -1,4 +1,5 @@
-<%= form_for(@step, html: { class: "form-horizontal", role: "form" }) do |f| %>
+<% url = @step.id.nil? ? game_steps_path(game_id: @game.id) : game_step_path(game_id: @game.id, id: @step.id) %>
+<%= form_for(url, html: { class: "form-horizontal", role: "form" }) do |f| %>
   <% if @step.errors.any? %>
     <div class="alert alert-danger alert-dismissable" role="alert">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -25,14 +26,8 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :game, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :game, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit class: "btn btn-primary" %>
+      <button type="submit" class="btn btn-primary">Créer l'étape</button>
     </div>
   </div>
 <% end %>
