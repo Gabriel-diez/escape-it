@@ -1,7 +1,7 @@
 class StepsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_game
-  before_action :set_step, only: [:show, :edit, :update, :destroy]
+  before_action :set_step, except: [:index, :new, :create]
 
   # GET /steps
   # GET /steps.json
@@ -21,6 +21,10 @@ class StepsController < ApplicationController
 
   # GET /steps/1/edit
   def edit
+  end
+
+  def update_notification
+    @step.validate(params[:notification_id])
   end
 
   # POST /steps
