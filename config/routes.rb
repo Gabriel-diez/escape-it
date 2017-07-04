@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :games do
+    post 'start', as: :start
     resources :steps do
       resources :devices, only: [] do
         get 'validate'
