@@ -72,7 +72,6 @@ class StepsController < ApplicationController
       @step = @game.steps.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def step_params
       params.require(:step).permit(:name, :finished, :game_id, devices_attributes: [:sensor_id, :device_id])
     end

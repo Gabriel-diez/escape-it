@@ -13,6 +13,7 @@
             <th>Name</th>
             <th>Finished</th>
             <th></th>
+          <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -24,6 +25,7 @@
             <td><%= step.name %></td>
             <td><%= step.finished %></td>
             <td><%= link_to 'Show', game_step_path(@game, step) %></td>
+            <td><%= link_to 'Gérer les devices', game_step_devices_path(@game, step) %></td>
         <td><%= link_to 'Edit', edit_game_step_path(@game, step) %></td>
         <td><%= link_to 'Destroy', game_step_path(@game, step), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <tr>

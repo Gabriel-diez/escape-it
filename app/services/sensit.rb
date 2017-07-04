@@ -25,15 +25,14 @@ class Sensit
   end
 
   def create_notification(device)
-    process("#{Sensit::PATHS[:base]}notifications?access_token=#{@user.access_token}", "post", {
+    process("#{Sensit::PATHS[:base]}notifications?access_token=#{@user.access_token}", "put", {
       template: "Notification",
       trigger: {
         id_device: device.device_id,
-        id_sensor: device.sensor_id,
         type: "GENERIC_PUNCTUAL",
       },
       connector: {
-        data: game_step_device_validate_url({ step_id: device.step.id, game_id: device.step.game.id, device_id: device.id }),
+        data: Rails.application.routes.url_helpers.game_step_device_validate_url(step_id: device.step.id, game_id: device.step.game.id, device_id: device.id, host: "localhost:3000"),
         type: "callback",
       },
       mode: 2
@@ -52,12 +51,14 @@ class Sensit
       elsif method == 'put'
         Net::HTTP::Put.new(uri)
       end
+
+      request['Content-type'] = 'application/json'
         
       request.basic_auth @user.client_id, @user.client_secret
-      request.body = body unless body.nil?
+      request.body = body.to_json unless body.nil?
 
 
-      Rails.logger.info(response = http.request(request).body)
+      response = http.request(request).body
       JSON.parse(response)
     end
   end

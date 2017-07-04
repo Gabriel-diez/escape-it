@@ -14,6 +14,10 @@ class Game < ApplicationRecord
   belongs_to :user
   has_many :steps
 
+  def self.search(query)
+    where("name ILIKE ?", "%#{query}%")
+  end
+
   def success_percentage
     total_steps_success == 0 ? 0 : 100/(total_steps/total_steps_success)
   end
