@@ -31,12 +31,27 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse navbar-right">
         <ul class="nav navbar-nav">
-          <li>
-            <%= link_to "Mes Parties", games_url if user_signed_in? %>
-          </li>
-          <li>
-            <%= link_to "Créer une partie", new_game_url if user_signed_in? %>
-          </li>
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "Mes Parties", games_url %>
+            </li>
+            <li>
+              <%= link_to "Créer une partie", new_game_url %>
+            </li>
+            <li>
+              <%= link_to "Éditer mon profil", edit_user_registration_url %>
+            </li>
+            <% unless current_user.client_id.nil? %>
+                <li>
+                  <a
+                  href="http://www.sensit.io/oauth/authorize?client_id=<%= current_user.client_id %>&response_type=code&redirect_uri=<%= callback_url %>"
+                  target="_blank"
+                  >
+                    Lier mon compte à Sensit
+                  </a>
+                </li>
+            <% end %>
+          <% end %>
           <li>
             <%= user_signed_in? ? link_to("Deconnexion", destroy_user_session_path, method: :delete) : link_to("Connexion" , new_user_session_path) %>
           </li>

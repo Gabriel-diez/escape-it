@@ -1,18 +1,9 @@
-<h2>Modifier mon compte</h2>
+<div class="page-header">
+  <h2>Modifier mon compte</h2>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
-  <% unless current_user.client_id.nil? %>
-  <a 
-    href="http://www.sensit.io/oauth/authorize?client_id=<%= current_user.client_id %>&response_type=code&redirect_uri=<%= callback_url %>"
-    target="_blank"
-    class="btn btn-primary"
-  >
-   Se connecter à l'API de sensit
-  </a>
-  <hr>
-  <% end %>
 
   <div class="col-sm-10 margin">
     <div class="form-group">
@@ -43,7 +34,7 @@
 
   <div class="col-sm-10 margin">
     <div class="form-group">
-      <%= f.label "Mot de passe", class: "col-sm-2 control-label" %>
+      <%= f.label "Nouveau Mot de passe", class: "col-sm-2 control-label" %>
       <div class="col-sm-10">
         <%= f.password_field :password, class: "form-control" %>
       </div>
