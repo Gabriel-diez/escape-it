@@ -23,10 +23,6 @@ class StepsController < ApplicationController
   def edit
   end
 
-  def update_notification
-    @step.validate(params[:notification_id])
-  end
-
   # POST /steps
   # POST /steps.json
   def create

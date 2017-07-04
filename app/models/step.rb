@@ -16,10 +16,6 @@ class Step < ApplicationRecord
 
   accepts_nested_attributes_for :devices
 
-  def validate(notification_id)
-    devices.where(notification_id: notification_id).update(valid: true)
-  end
-
   def is_validated?
     devices.where(valid: false).empty?
   end
