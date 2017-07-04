@@ -1,5 +1,5 @@
 <div class="page-header">
-  <%= link_to new_device_path, class: 'btn btn-primary' do %>
+  <%= link_to new_game_step_device_path(game_id: @game.id, step_id: @step.id), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
     New Device
   <% end %>
@@ -11,6 +11,7 @@
     <thead>
       <tr>
             <th>Sensor</th>
+            <th>Device</th>
             <th>Valid</th>
             <th>Step</th>
             <th></th>
@@ -20,13 +21,16 @@
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @devices) do |device| %>
-            <td><%= device.sensor_id %></td>
-            <td><%= device.valid %></td>
-            <td><%= device.step %></td>
-            <td><%= link_to 'Show', device %></td>
-        <td><%= link_to 'Edit', edit_device_path(device) %></td>
-        <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% @devices.each do |device| %>
+        <tr>
+          <td><%= device.sensor_id %></td>
+          <td><%= device.device_id %></td>
+          <td><%= device.is_ok %></td>
+          <td><%= device.step %></td>
+          <td><%= link_to 'Show', game_step_device_path(game_id: @game.id, step_id: @step.id, id: device.id) %></td>
+          <td><%= link_to 'Edit', edit_game_step_device_path(game_id: @game.id, step_id: @step.id, id: device.id) %></td>
+          <td><%= link_to 'Destroy', game_step_device_path(game_id: @game.id, step_id: @step.id, id: device.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>

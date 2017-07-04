@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   resources :games do
     post 'start', as: :start
+    post 'reset', as: :reset
+    
     resources :steps do
-      resources :devices, only: [] do
+      resources :devices do
         get 'validate'
       end
     end
-    post 'reset', as: :reset
   end
   devise_for :users, :controllers => { registrations: 'registrations' }
 
