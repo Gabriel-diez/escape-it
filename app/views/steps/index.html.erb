@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Step
   <% end %>
-  <h1>Listing steps</h1>
+  <h1>Listing steps of <%= @game.name %></h1>
 </div>
 
 <div class="table-responsive">
@@ -12,7 +12,6 @@
       <tr>
             <th>Name</th>
             <th>Finished</th>
-            <th>Game</th>
             <th></th>
         <th></th>
         <th></th>
@@ -24,10 +23,9 @@
       <tr>
             <td><%= step.name %></td>
             <td><%= step.finished %></td>
-            <td><%= step.game %></td>
-            <td><%= link_to 'Show', step %></td>
-        <td><%= link_to 'Edit', edit_step_path(step) %></td>
-        <td><%= link_to 'Destroy', step, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Show', game_step_path(@game, step) %></td>
+        <td><%= link_to 'Edit', edit_game_step_path(@game, step) %></td>
+        <td><%= link_to 'Destroy', game_step_path(@game, step), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <tr>
       <% end %>
     </tbody>
