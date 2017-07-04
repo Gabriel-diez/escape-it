@@ -8,20 +8,30 @@
     </div>
     </div>
     <div class="panel-body">
-      <h3 class="panel-title"><%= game.name %></h3>
+      <h3><%= game.name %></h3>
+      <ul class="list-group">
+        <% game.steps.each do |step| %>
+          <li class="list-group-item <%= step.finished && "active" %>" >
+            <%= step.name %>
+            <span class="<%= step.finished && "glyphicon glyphicon-ok" %>">
+            </span>
+          </li>
+        <% end %>
+      </ul>
     </div>
     <div class="panel-footer">
-      <div class="left">
+      <div class="pull-left">
         <%= link_to '', game_start_path(game), :class => "btn glyphicon glyphicon-triangle-right", remote: true, method: :post %>
+        <%= link_to 'Ajouter une étape', new_game_step_path(game_id: game.id) %>
       </div>
-      <div class="text-right">
-        <%= link_to 'Reset', game_reset_url(game), method: :post %>
+      <div class="pull-right">
         <%= link_to '', game, :class => "glyphicon glyphicon-search" %>
         <%= link_to '', edit_game_path(game), :class => "glyphicon glyphicon-pencil" %>
         <%= link_to '', game, method: :delete, data: { confirm: 'Are you sure?' }, :class => "glyphicon glyphicon-remove" %>
       </div>
+      <div class="clearfix"></div>
     </div>
   </div>
 <% end %>
 
-<%= link_to 'New Game', new_game_path %>
+<%= link_to 'Ajouter une partie', new_game_path %>
