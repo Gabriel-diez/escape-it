@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :games do
+  resources :games, :except => :show do
     post 'start', as: :start
     resources :steps do
       resources :devices, only: [] do

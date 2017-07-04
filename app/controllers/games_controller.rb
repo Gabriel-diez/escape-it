@@ -1,16 +1,11 @@
 class GamesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_game, only: [:show, :edit, :update, :destroy, :start, :reset]
+  before_action :set_game, only: [:edit, :update, :destroy, :start, :reset]
 
   # GET /games
   # GET /games.json
   def index
     @games = current_user.games.all
-  end
-
-  # GET /games/1
-  # GET /games/1.json
-  def show
   end
 
   # GET /games/new
@@ -29,8 +24,8 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if @game.save
-        format.html { redirect_to @game, notice: 'Game was successfully created.' }
-        format.json { render :show, status: :created, location: @game }
+        format.html { redirect_to games_path, notice: 'Game was successfully created.' }
+        format.json { render :show, status: :created, location: games_path }
       else
         format.html { render :new }
         format.json { render json: @game.errors, status: :unprocessable_entity }
@@ -43,8 +38,8 @@ class GamesController < ApplicationController
   def update
     respond_to do |format|
       if @game.update(game_params)
-        format.html { redirect_to @game, notice: 'Game was successfully updated.' }
-        format.json { render :show, status: :ok, location: @game }
+        format.html { redirect_to games_path, notice: 'Game was successfully updated.' }
+        format.json { render :show, status: :ok, location: games_path }
       else
         format.html { render :edit }
         format.json { render json: @game.errors, status: :unprocessable_entity }
