@@ -1,10 +1,12 @@
 class StepsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_game
   before_action :set_step, only: [:show, :edit, :update, :destroy]
 
   # GET /steps
   # GET /steps.json
   def index
-    @steps = Step.all
+    @steps = @game.steps.all
   end
 
   # GET /steps/1
@@ -14,7 +16,7 @@ class StepsController < ApplicationController
 
   # GET /steps/new
   def new
-    @step = Step.new
+    @step = @game.steps.new
   end
 
   # GET /steps/1/edit
@@ -24,7 +26,7 @@ class StepsController < ApplicationController
   # POST /steps
   # POST /steps.json
   def create
-    @step = Step.new(step_params)
+    @step = @game.steps.new(step_params)
 
     respond_to do |format|
       if @step.save
@@ -62,9 +64,12 @@ class StepsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def set_game
+      @game = current_user.games.find(params[:game_id])
+    end
+
     def set_step
-      @step = Step.find(params[:id])
+      @step = @game.steps.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
