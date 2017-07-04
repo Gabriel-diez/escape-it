@@ -35,8 +35,8 @@ $navbar-main-border:                     darken($navbar-main-color, 30%) !defaul
 }
 
 body, .navbar-brand:hover {
-  background-color:$template-dark !important;
-  color: whitesmoke;
+  /*background-color:$template-dark !important;*/
+  color: #333 /*whitesmoke*/;
 }
 
 input, td, .panel-title {
