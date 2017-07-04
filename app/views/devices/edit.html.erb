@@ -1,9 +1,9 @@
 <div class="page-header">
-  <%= link_to devices_path, class: 'btn btn-default' do %>
+  <%= link_to game_step_devices_path(game_id: @game.id, step_id: @step.id), class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to @device, class: 'btn btn-primary' do %>
+  <%= link_to game_step_device_path(game_id: @game.id, step_id: @step.id, id: @device.id), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-info-sign"></span>
     Show
   <% end %>
