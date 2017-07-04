@@ -5,7 +5,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = current_user.games.all
+    @games = current_user.games.all.order(started: :desc)
   end
 
   # GET /games/new
@@ -63,7 +63,7 @@ class GamesController < ApplicationController
 
   def reset
     if @game.reset
-      render :show, status: :ok, location: @game
+      redirect_to games_path
     end
   end
 
