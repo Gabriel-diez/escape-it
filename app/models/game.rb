@@ -26,10 +26,16 @@ class Game < ApplicationRecord
     steps.count
   end
 
+<<<<<<< HEAD
   def start
     steps.each do |step|
       step.devices.each { |device| Sensit.new(user).create_notification(device) }
     end
     self.update(started: true)
+=======
+  def reset
+    steps.update_all(finished: false)
+    self.update(started: false)
+>>>>>>> 1493ee31c94f84e5407fe9914108b533075a9c1a
   end
 end

@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_game, only: [:show, :edit, :update, :destroy, :start]
+  before_action :set_game, only: [:show, :edit, :update, :destroy, :start, :reset]
 
   # GET /games
   # GET /games.json
@@ -64,6 +64,12 @@ class GamesController < ApplicationController
 
   def start
     @game.start
+  end
+
+  def reset
+    if @game.reset
+      render :show, status: :ok, location: @game
+    end
   end
 
   private
