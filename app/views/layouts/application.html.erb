@@ -18,7 +18,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-main navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -39,7 +39,7 @@
               <%= link_to "Créer une partie", new_game_url %>
             </li>
             <li>
-              <%= link_to "Éditer mon profil", edit_user_registration_url %>
+              <%= link_to '<span class="glyphicon glyphicon-user" aria-hidden="true"></span>'.html_safe, edit_user_registration_url, :class => "navbar-brand" %>
             </li>
             <% unless current_user.access_token.nil? %>
                 <li>
@@ -66,7 +66,6 @@
         <%= msg %>
       <% end %>
     <% end %>
-
     <%= yield %>
   </div>
 </body>
