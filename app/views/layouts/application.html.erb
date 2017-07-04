@@ -35,6 +35,9 @@
             <%= link_to "Mes Parties", games_url if user_signed_in? %>
           </li>
           <li>
+            <%= link_to "Créer une partie", new_game_url if user_signed_in? %>
+          </li>
+          <li>
             <%= user_signed_in? ? link_to("Deconnexion", destroy_user_session_path, method: :delete) : link_to("Connexion" , new_user_session_path) %>
           </li>
         </ul>
