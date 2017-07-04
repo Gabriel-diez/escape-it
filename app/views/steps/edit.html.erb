@@ -1,13 +1,13 @@
 <div class="page-header">
   <%= link_to game_steps_path(game_id: @game.id), class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    Retour
   <% end %>
   <%= link_to game_step_path(@game, @step), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-info-sign"></span>
-    Show
+    Voir
   <% end %>
-  <h1>Editing step</h1>
+  <h1>Editer l'étape</h1>
 </div>
 
 <%= render 'form' %>

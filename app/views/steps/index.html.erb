@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     Ajouter une étape
   <% end %>
-  <h1>Liste des étapes <%= @game.name %></h1>
+  <h1>Liste des étapes de <%= @game.name %></h1>
 </div>
 
 <div class="table-responsive">
@@ -32,3 +32,8 @@
     </tbody>
   </table>
 </div>
+
+<%= link_to games_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Retour
+<% end %>
