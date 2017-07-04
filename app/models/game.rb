@@ -12,4 +12,9 @@
 class Game < ApplicationRecord
   belongs_to :user
   has_many :steps
+
+  def success_percentage
+    numberOfStep = self.steps.where(finished: true).count
+    return numberOfStep / 100
+  end
 end
