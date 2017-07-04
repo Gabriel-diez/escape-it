@@ -13,4 +13,6 @@
 class Step < ApplicationRecord
   belongs_to :game
   has_many :devices
+
+  accepts_nested_attributes_for :devices
 end
