@@ -1,0 +1,62 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+
+$nav-blue-indigo : #242b53 !default;
+$template-dark: #141414 !default;
+
+// Main navbar
+// Reset main navbar basics
+$navbar-main-color:                      lighten($nav-blue-indigo, 15%) !default;
+$navbar-main-bg:                         #222 !default;
+$navbar-main-border:                     darken($navbar-main-color, 30%) !default;
+
+// Main navbar links
+$navbar-main-link-color:                 lighten($nav-blue-indigo, 15%) !default;
+$navbar-main-link-hover-color:           #fff !default;
+$navbar-main-link-hover-bg:              transparent !default;
+$navbar-main-link-active-color:          $navbar-main-link-hover-color !default;
+$navbar-main-link-active-bg:             darken($navbar-main-bg, 10%) !default;
+$navbar-main-link-disabled-color:        #444 !default;
+$navbar-main-link-disabled-bg:           transparent !default;
+
+// Main navbar brand label
+$navbar-main-brand-color:                $navbar-main-link-color !default;
+$navbar-main-brand-hover-color:          #fff !default;
+$navbar-main-brand-hover-bg:             transparent !default;
+
+// Main navbar toggle
+$navbar-main-toggle-hover-bg:            #333 !default;
+$navbar-main-toggle-icon-bar-bg:         #fff !default;
+$navbar-main-toggle-border-color:        #333 !default;
+
+
+.navbar-main {
+  background-color: $nav-blue-indigo;
+  border-color: $template-dark;
+  color: whitesmoke !important;
+
+}
+.navbar-brand {
+  color: whitesmoke !important;
+}
+
+
+
+.navbar-text {
+  padding-right: 10px;
+}
+
+.navbar-nav > .navbar-brand {
+  font-size: 14px !important;
+  margin-left: 6px !important;
+}
+
+body, .navbar-brand:hover {
+  background-color:$template-dark !important;
+  color: whitesmoke;
+}
