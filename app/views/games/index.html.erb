@@ -1,6 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Mes parties</h1>
+<%= form_tag(games_path, :method => "get") do %>
+  <div class="col-lg-3 input-group search-bar">
+    <%= text_field_tag :search, params[:search], placeholder: "Recherche", :class => "form-control" %>
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+    </span>
+  </div>
+<% end %>
 <% @games.each do |game| %>
   <div class="panel panel-default">
     <div class="progress">
@@ -8,20 +14,30 @@
     </div>
     </div>
     <div class="panel-body">
-      <h3 class="panel-title"><%= game.name %></h3>
+      <h3><%= game.name %></h3>
+      <ul class="list-group">
+        <% game.steps.each do |step| %>
+          <li class="list-group-item <%= step.finished && "active" %>" >
+            <%= step.name %>
+            <span class="<%= step.finished && "glyphicon glyphicon-ok" %>">
+            </span>
+          </li>
+        <% end %>
+      </ul>
     </div>
     <div class="panel-footer">
-      <div class="left">
-        <%= link_to '', game_start_path(game), :class => "btn glyphicon glyphicon-triangle-right", remote: true, method: :post %>
+      <div class="pull-left">
+        <%= link_to 'Ajouter une étape', new_game_step_path(game_id: game.id) %>
       </div>
-      <div class="text-right">
-        <%= link_to 'Reset', game_reset_url(game), method: :post %>
-        <%= link_to '', game, :class => "glyphicon glyphicon-search" %>
-        <%= link_to '', edit_game_path(game), :class => "glyphicon glyphicon-pencil" %>
-        <%= link_to '', game, method: :delete, data: { confirm: 'Are you sure?' }, :class => "glyphicon glyphicon-remove" %>
+      <div class="pull-right game-icon">
+        <%= link_to '', game_start_path(game), :class => "glyphicon glyphicon-triangle-right", remote: true, method: :post, title: 'Start', alt: 'Start' %>
+        <%= link_to '', game_reset_path(game), method: :post, :class => "glyphicon glyphicon-repeat", title: 'Reinitialiser', alt: 'Reinitialiser' %>
+        <%= link_to '', edit_game_path(game), :class => "glyphicon glyphicon-pencil", title: 'Editer', alt: 'Editer' %>
+        <%= link_to '', game, method: :delete, data: { confirm: 'Voulez vous vraiment supprimer cette partie ?' }, :class => "glyphicon glyphicon-remove", title: 'Supprimer', alt: 'Supprimer' %>
       </div>
+      <div class="clearfix"></div>
     </div>
   </div>
 <% end %>
 
-<%= link_to 'New Game', new_game_path %>
+<%= link_to 'Ajouter une partie', new_game_path %>

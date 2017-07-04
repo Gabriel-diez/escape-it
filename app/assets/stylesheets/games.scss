@@ -5,4 +5,17 @@
 .progress {
   margin-bottom: 0px;
   height: 5rem;
+  background-color: #F8F9FA;
+}
+
+.game-icon {
+  a:hover {
+    background-color: transparent;
+    color: #5bc0de;
+    text-decoration: none;
+  }
+}
+
+.search-bar {
+  margin-bottom: 1rem;
 }
