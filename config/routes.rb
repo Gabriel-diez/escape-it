@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :devices
   resources :games do
-    resources :steps
+    resources :steps do
+      resources :devices, only: [] do
+        get 'validate'
+      end
+    end
   end
   devise_for :users, :controllers => { registrations: 'registrations' }
 
