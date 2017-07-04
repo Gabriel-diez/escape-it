@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
+gem 'bootstrap-generators', '~> 3.3.4'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
