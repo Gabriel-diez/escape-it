@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :devices
   resources :steps
   resources :games
   devise_for :users

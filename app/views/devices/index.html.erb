@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to new_device_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Device
+  <% end %>
+  <h1>Listing devices</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Sensor</th>
+            <th>Valid</th>
+            <th>Step</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @devices) do |device| %>
+            <td><%= device.sensor_id %></td>
+            <td><%= device.valid %></td>
+            <td><%= device.step %></td>
+            <td><%= link_to 'Show', device %></td>
+        <td><%= link_to 'Edit', edit_device_path(device) %></td>
+        <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

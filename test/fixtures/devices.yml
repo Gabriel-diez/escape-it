@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sensor_id: 1
+  valid: false
+  step: one
+
+two:
+  sensor_id: 1
+  valid: false
+  step: two

@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to devices_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_device_path(@device), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show device</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Sensor:</dt>
+  <dd><%= @device.sensor_id %></dd>
+
+  <dt>Valid:</dt>
+  <dd><%= @device.valid %></dd>
+
+  <dt>Step:</dt>
+  <dd><%= @device.step %></dd>
+
+</dl>
