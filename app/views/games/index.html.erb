@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Mes parties</h1>
 <% @games.each do |game| %>
   <div class="panel panel-default">
@@ -27,7 +25,7 @@
         <%= link_to '', game_start_path(game), :class => "glyphicon glyphicon-triangle-right", remote: true, method: :post, title: 'Start', alt: 'Start' %>
         <%= link_to '', game_reset_path(game), method: :post, :class => "glyphicon glyphicon-repeat", title: 'Reinitialiser', alt: 'Reinitialiser' %>
         <%= link_to '', edit_game_path(game), :class => "glyphicon glyphicon-pencil", title: 'Editer', alt: 'Editer' %>
-        <%= link_to '', game, method: :delete, data: { confirm: 'Are you sure?' }, :class => "glyphicon glyphicon-remove", title: 'Supprimer', alt: 'Supprimer' %>
+        <%= link_to '', game, method: :delete, data: { confirm: 'Voulez vous vraiment supprimer cette partie ?' }, :class => "glyphicon glyphicon-remove", title: 'Supprimer', alt: 'Supprimer' %>
       </div>
       <div class="clearfix"></div>
     </div>
