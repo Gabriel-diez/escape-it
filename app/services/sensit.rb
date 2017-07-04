@@ -56,7 +56,9 @@ class Sensit
       request.basic_auth @user.client_id, @user.client_secret
       request.body = body unless body.nil?
 
-      JSON.parse(http.request(request).body)
+
+      Rails.logger.info(response = http.request(request).body)
+      JSON.parse(response)
     end
   end
 

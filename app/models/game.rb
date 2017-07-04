@@ -7,6 +7,7 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  started    :boolean          default(FALSE)
 #
 
 class Game < ApplicationRecord
@@ -23,5 +24,12 @@ class Game < ApplicationRecord
 
   def total_steps
     steps.count
+  end
+
+  def start
+    steps.each do |step|
+      step.devices.each { |device| Sensit.new(user).create_notification(device) }
+    end
+    self.update(started: true)
   end
 end

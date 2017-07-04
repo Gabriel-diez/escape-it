@@ -63,7 +63,7 @@ class GamesController < ApplicationController
   end
 
   def start
-    @game.update(started: true)
+    @game.start
   end
 
   private
