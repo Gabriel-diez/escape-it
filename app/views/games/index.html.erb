@@ -12,6 +12,7 @@
     </div>
     <div class="panel-footer">
       <div class="text-right">
+        <%= link_to 'Reset', game_reset_url(game), method: :post %>
         <%= link_to '', game, :class => "glyphicon glyphicon-search" %>
         <%= link_to '', edit_game_path(game), :class => "glyphicon glyphicon-pencil" %>
         <%= link_to '', game, method: :delete, data: { confirm: 'Are you sure?' }, :class => "glyphicon glyphicon-remove" %>

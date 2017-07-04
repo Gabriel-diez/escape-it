@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :devices
   resources :games do
     post 'start', as: :start
+    post 'reset', as: :reset
     resources :steps
   end
   devise_for :users, :controllers => { registrations: 'registrations' }

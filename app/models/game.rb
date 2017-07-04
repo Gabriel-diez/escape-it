@@ -24,4 +24,9 @@ class Game < ApplicationRecord
   def total_steps
     steps.count
   end
+
+  def reset
+    steps.update_all(finished: false)
+    self.update(started: false)
+  end
 end
