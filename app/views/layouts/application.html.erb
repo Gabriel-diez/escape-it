@@ -38,7 +38,7 @@
             <li class="menu-nav">
               <%= link_to "Créer une partie", new_game_url %>
             </li>
-            <% unless current_user.access_token.nil? %>
+            <% if current_user.access_token.nil? %>
                 <li class="menu-nav">
                   <a
                   href="http://www.sensit.io/oauth/authorize?client_id=<%= current_user.client_id %>&response_type=code&redirect_uri=<%= callback_url %>"
