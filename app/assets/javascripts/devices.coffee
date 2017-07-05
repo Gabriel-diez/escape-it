@@ -18,5 +18,5 @@ Device =
 
     
 
-$(document).ready ->
+document.addEventListener "turbolinks:load", ->
 	Device.init()
