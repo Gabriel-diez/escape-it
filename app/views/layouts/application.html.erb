@@ -27,19 +27,19 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "Escape-it", root_path, class: "navbar-brand" %>
+        <%= link_to "Escape-it", root_path, class: "navbar-brand", id: "menu-nav-home" %>
       </div>
       <div id="navbar" class="collapse navbar-collapse navbar-right">
         <ul class="nav navbar-nav">
           <% if user_signed_in? %>
-            <li>
+            <li class="menu-nav">
               <%= link_to "Mes Parties", games_url %>
             </li>
-            <li>
+            <li class="menu-nav">
               <%= link_to "Créer une partie", new_game_url %>
             </li>
             <% unless current_user.access_token.nil? %>
-                <li>
+                <li class="menu-nav">
                   <a
                   href="http://www.sensit.io/oauth/authorize?client_id=<%= current_user.client_id %>&response_type=code&redirect_uri=<%= callback_url %>"
                   target="_blank"
@@ -49,11 +49,11 @@
                 </li>
             <% end %>
           <% end %>
-          <li>
+          <li class="menu-nav">
             <%= user_signed_in? ? link_to("Deconnexion", destroy_user_session_path, method: :delete) : link_to("Connexion" , new_user_session_path) %>
           </li>
-          <li>
-            <%= link_to '<span class="glyphicon glyphicon-user" aria-hidden="true"></span>'.html_safe, edit_user_registration_url, :class => "navbar-brand" %>
+          <li class="menu-nav">
+            <%= link_to '<span class="glyphicon glyphicon-user" aria-hidden="true"></span>'.html_safe, edit_user_registration_url %>
           </li>
         </ul>
       </div>
