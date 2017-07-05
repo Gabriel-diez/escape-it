@@ -29,7 +29,7 @@ class Sensit
   end
 
   def create_notification(device)
-    process("#{Sensit::PATHS[:base]}notifications?access_token=#{@user.access_token}", "put", {
+    return process("#{Sensit::PATHS[:base]}notifications?access_token=#{@user.access_token}", "put", {
       template: "Notification",
       trigger: {
         id_device: device.device_id,
@@ -41,8 +41,8 @@ class Sensit
         data: Rails.application.routes.url_helpers.game_step_device_validate_url(step_id: device.step.id, game_id: device.step.game.id, device_id: device.id),
         type: "callback",
       },
-      mode: 2
-    })
+      mode: -1
+    })['data']['id']
   end
 
   private
@@ -62,7 +62,6 @@ class Sensit
         
       request.basic_auth @user.client_id, @user.client_secret
       request.body = body.to_json unless body.nil?
-
 
       response = http.request(request).body
       JSON.parse(response)
