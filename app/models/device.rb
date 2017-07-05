@@ -14,5 +14,5 @@
 
 class Device < ApplicationRecord
   belongs_to :step
-  validates :value, :sensor_id, :device_id
+  validates :value, :sensor_id, :device_id, presence: true
 end
