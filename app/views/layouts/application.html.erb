@@ -41,7 +41,7 @@
             <li>
               <%= link_to "Éditer mon profil", edit_user_registration_url %>
             </li>
-            <% unless current_user.client_id.nil? %>
+            <% unless current_user.access_token.nil? %>
                 <li>
                   <a
                   href="http://www.sensit.io/oauth/authorize?client_id=<%= current_user.client_id %>&response_type=code&redirect_uri=<%= callback_url %>"
