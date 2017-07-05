@@ -1,5 +1,5 @@
 class DevicesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:validate]
   before_action :set_resources
   before_action :set_device, except: [:validate, :index, :new, :get_sensors]
 
