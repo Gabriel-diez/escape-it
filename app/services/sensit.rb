@@ -64,6 +64,7 @@ class Sensit
       request.body = body.to_json unless body.nil?
 
       response = http.request(request).body
+      Rails.logger.error response
       JSON.parse(response)
     end
   end
