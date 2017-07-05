@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :link_to_api
 
   def link_to_api
-    return if !current_user || current_user.client_id.nil? || !current_user.access_token.nil? || params[:code]
+    return if params[:code] || !current_user || current_user.client_id.nil? || !current_user.access_token.nil?
     redirect_to "http://www.sensit.io/oauth/authorize?client_id=#{current_user.client_id}&response_type=code&redirect_uri=#{callback_url}"
   end
 end
