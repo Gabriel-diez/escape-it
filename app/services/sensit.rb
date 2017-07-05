@@ -24,6 +24,10 @@ class Sensit
     process("#{Sensit::PATHS[:base]}devices?access_token=#{@user.access_token}")['data']
   end
 
+  def sensors(device_id)
+    process("#{Sensit::PATHS[:base]}devices/#{device_id}/?access_token=#{@user.access_token}")['data']['sensors']
+  end
+
   def create_notification(device)
     process("#{Sensit::PATHS[:base]}notifications?access_token=#{@user.access_token}", "put", {
       template: "Notification",

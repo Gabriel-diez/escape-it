@@ -12,7 +12,9 @@
 
 class Game < ApplicationRecord
   belongs_to :user
-  has_many :steps
+  has_many :steps, dependent: :destroy
+
+  validates :name, presence: true
 
   def self.search(query)
     where("name ILIKE ?", "%#{query}%")
@@ -40,5 +42,9 @@ class Game < ApplicationRecord
   def reset
     steps.update_all(finished: false)
     self.update(started: false)
+  end
+
+  def to_s
+    self.name
   end
 end

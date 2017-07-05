@@ -12,8 +12,9 @@
 
 class Step < ApplicationRecord
   belongs_to :game
-  has_many :devices
+  has_many :devices, dependent: :delete_all
 
+  validates :name, presence: true
   accepts_nested_attributes_for :devices
 
   def is_validated?

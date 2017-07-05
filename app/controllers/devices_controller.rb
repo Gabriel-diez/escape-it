@@ -1,7 +1,7 @@
 class DevicesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_resources
-  before_action :set_device, except: [:validate, :index, :new]
+  before_action :set_device, except: [:validate, :index, :new, :get_sensors]
 
   def index
     @devices = @step.devices.all
@@ -12,6 +12,10 @@ class DevicesController < ApplicationController
   end
 
   def edit
+  end
+
+  def sensors
+    render json: Sensit.new(current_user).sensors(params[:device_id])
   end
 
   def validate

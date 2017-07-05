@@ -1,18 +1,17 @@
 <div class="page-header">
   <%= link_to new_game_step_path(game_id: @game.id), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Step
+    Créer une énigme
   <% end %>
-  <h1>Listing steps of <%= @game.name %></h1>
+  <h1>Les énigmes de <%= @game.name %></h1>
 </div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-            <th>Name</th>
-            <th>Finished</th>
-            <th></th>
+          <th>Nom de l'énigme</th>
+          <th>Terminé</th>
           <th></th>
         <th></th>
         <th></th>
@@ -22,12 +21,11 @@
     <tbody>
       <% @steps.each do |step| %>
       <tr>
-            <td><%= step.name %></td>
-            <td><%= step.finished %></td>
-            <td><%= link_to 'Show', game_step_path(@game, step) %></td>
-            <td><%= link_to 'Gérer les devices', game_step_devices_path(@game, step) %></td>
-        <td><%= link_to 'Edit', edit_game_step_path(@game, step) %></td>
-        <td><%= link_to 'Destroy', game_step_path(@game, step), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= step.name %></td>
+          <td><%= step.finished ? "Oui" : "Non" %></td>
+          <td><%= link_to 'Gérer les Sensits', game_step_devices_path(@game, step) %></td>
+        <td><%= link_to 'Modifier', edit_game_step_path(@game, step) %></td>
+        <td><%= link_to 'Supprimer', game_step_path(@game, step), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <tr>
       <% end %>
     </tbody>

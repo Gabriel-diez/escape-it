@@ -28,7 +28,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if @game.save
-        format.html { redirect_to games_path, notice: 'La partie a bien été créée' }
+        format.html { redirect_to game_steps_path(game_id: @game.id), notice: 'La partie a bien été créée' }
         format.json { render :show, status: :created, location: games_path }
       else
         format.html { render :new }

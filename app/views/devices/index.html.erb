@@ -1,19 +1,20 @@
+<%= link_to "Retour au jeu", edit_game_path(@game) %>
+
 <div class="page-header">
   <%= link_to new_game_step_device_path(game_id: @game.id, step_id: @step.id), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Device
+    Ajouter un Sensit
   <% end %>
-  <h1>Listing devices</h1>
+  <h1>Les Sensits de l'énigme "<%= @step.name %>"</h1>
 </div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-            <th>Sensor</th>
-            <th>Device</th>
-            <th>Valid</th>
-            <th>Step</th>
+            <th>Capteur</th>
+            <th>ID de l'appareil</th>
+            <th>État du capteur</th>
             <th></th>
         <th></th>
         <th></th>
@@ -26,10 +27,8 @@
           <td><%= device.sensor_id %></td>
           <td><%= device.device_id %></td>
           <td><%= device.is_ok %></td>
-          <td><%= device.step %></td>
-          <td><%= link_to 'Show', game_step_device_path(game_id: @game.id, step_id: @step.id, id: device.id) %></td>
-          <td><%= link_to 'Edit', edit_game_step_device_path(game_id: @game.id, step_id: @step.id, id: device.id) %></td>
-          <td><%= link_to 'Destroy', game_step_device_path(game_id: @game.id, step_id: @step.id, id: device.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Modifier', edit_game_step_device_path(game_id: @game.id, step_id: @step.id, id: device.id) %></td>
+          <td><%= link_to 'Supprimer', game_step_device_path(game_id: @game.id, step_id: @step.id, id: device.id), method: :delete, data: { confirm: 'Êtes-vous sûr(e) ?' } %></td>
         </tr>
       <% end %>
     </tbody>
