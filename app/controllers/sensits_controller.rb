@@ -4,7 +4,7 @@ class SensitsController < ApplicationController
 
   def callback
     @api.authenticate(params[:code])
-    redirect_to edit_user_registration_url, notice: 'Ok'
+    redirect_to edit_user_registration_url, notice: 'Votre compte a bien été créé et lié à Sensit'
   end
 
   def refresh

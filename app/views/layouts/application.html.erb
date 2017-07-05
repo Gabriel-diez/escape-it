@@ -38,16 +38,6 @@
             <li class="menu-nav">
               <%= link_to "Créer une partie", new_game_url %>
             </li>
-            <% if current_user.access_token.nil? %>
-                <li class="menu-nav">
-                  <a
-                  href="http://www.sensit.io/oauth/authorize?client_id=<%= current_user.client_id %>&response_type=code&redirect_uri=<%= callback_url %>"
-                  target="_blank"
-                  >
-                    Lier mon compte à Sensit
-                  </a>
-                </li>
-            <% end %>
           <% end %>
           <li class="menu-nav">
             <%= user_signed_in? ? link_to("Deconnexion", destroy_user_session_path, method: :delete) : link_to("Connexion" , new_user_session_path) %>
