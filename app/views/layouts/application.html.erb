@@ -38,9 +38,6 @@
             <li>
               <%= link_to "Créer une partie", new_game_url %>
             </li>
-            <li>
-              <%= link_to '<span class="glyphicon glyphicon-user" aria-hidden="true"></span>'.html_safe, edit_user_registration_url, :class => "navbar-brand" %>
-            </li>
             <% unless current_user.access_token.nil? %>
                 <li>
                   <a
@@ -54,6 +51,9 @@
           <% end %>
           <li>
             <%= user_signed_in? ? link_to("Deconnexion", destroy_user_session_path, method: :delete) : link_to("Connexion" , new_user_session_path) %>
+          </li>
+          <li>
+            <%= link_to '<span class="glyphicon glyphicon-user" aria-hidden="true"></span>'.html_safe, edit_user_registration_url, :class => "navbar-brand" %>
           </li>
         </ul>
       </div>
