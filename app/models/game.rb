@@ -25,7 +25,7 @@ class Game < ApplicationRecord
   end
 
   def total_steps_success
-    steps.where(finished: true).count
+    steps.select { |s| s.is_validated? }.length
   end
 
   def total_steps
