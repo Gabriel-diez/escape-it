@@ -18,27 +18,43 @@ $navbar-main-border:                     darken($navbar-main-color, 30%) !defaul
 .navbar-main,.btn {
   background-color: $nav-blue-indigo;
   border-color: $template-dark;
-  color: whitesmoke !important;
-}
 
-.navbar-brand {
-  color: whitesmoke !important;
+  #menu-nav-home {
+    color: whitesmoke;
+  }
+
+  #menu-nav-home:hover {
+    background-color: #333;
+
+  }
 }
 
 .navbar-text {
   padding-right: 10px;
 }
 
-.navbar-nav > .navbar-brand {
-  font-size: 14px !important;
-  margin-left: 6px !important;
-}
-
-body, .navbar-brand:hover {
-  /*background-color:$template-dark !important;*/
-  color: #333 /*whitesmoke*/;
-}
 
 input, td, .panel-title {
   color: #2E2F30;
+}
+
+.nav {
+  .menu-nav {
+    a {
+      color: whitesmoke;
+
+      .glyphicon-user {
+        font-size: 1.4em;
+      }
+    }
+    a:hover {
+      background-color: #333;
+    }
+  }
+}
+
+body {
+  .btn {
+    color: whitesmoke;
+  }
 }
