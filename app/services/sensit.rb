@@ -65,6 +65,7 @@ class Sensit
 
 
       response = http.request(request).body
+      Rails.logger.error response
       JSON.parse(response)
     end
   end
