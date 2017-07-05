@@ -19,7 +19,7 @@ class DevicesController < ApplicationController
   end
 
   def validate
-    @step.devices.find(params[:device_id]).update(valid: true)
+    @step.devices.find(params[:device_id]).update(valid: true) if @game.started
   end
 
   def create
