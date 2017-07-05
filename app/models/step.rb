@@ -18,6 +18,6 @@ class Step < ApplicationRecord
   accepts_nested_attributes_for :devices
 
   def is_validated?
-    devices.where(valid: false).empty?
+    devices.where(is_ok: false).empty?
   end
 end
