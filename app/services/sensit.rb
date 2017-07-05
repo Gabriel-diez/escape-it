@@ -13,7 +13,7 @@ class Sensit
   end
 
   def authenticate(code)
-    save process("#{Sensit::PATHS[:token]}grant_type=authorization_code&code=#{code}&client_id=#{@user.client_id}&redirect_uri=#{Rails.application.routes.url_helpers.callback_url}")
+    save process("#{Sensit::PATHS[:token]}grant_type=authorization_code&code=#{code}&client_id=#{@user.client_id}&redirect_uri=#{Rails.application.routes.url_helpers.callback_url}", "post")
   end
 
   def refresh
@@ -32,7 +32,7 @@ class Sensit
         type: "GENERIC_PUNCTUAL",
       },
       connector: {
-        data: Rails.application.routes.url_helpers.game_step_device_validate_url(step_id: device.step.id, game_id: device.step.game.id, device_id: device.id, host: "localhost:3000"),
+        data: Rails.application.routes.url_helpers.game_step_device_validate_url(step_id: device.step.id, game_id: device.step.game.id, device_id: device.id),
         type: "callback",
       },
       mode: 2

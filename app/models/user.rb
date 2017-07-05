@@ -27,5 +27,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :client_id, :client_secret, presence: true
+
   has_many :games
 end
