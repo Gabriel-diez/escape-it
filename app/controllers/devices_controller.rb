@@ -20,6 +20,7 @@ class DevicesController < ApplicationController
 
   def validate
     @step.devices.find(params[:device_id]).update(is_ok: true) if @game.started
+    render json: { game_started: @game.started }
   end
 
   def create
