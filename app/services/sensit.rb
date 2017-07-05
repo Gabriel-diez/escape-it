@@ -28,6 +28,10 @@ class Sensit
     process("#{Sensit::PATHS[:base]}devices/#{device_id}/?access_token=#{@user.access_token}")['data']['sensors']
   end
 
+  def delete_notification(device)
+    process("#{Sensit::PATHS[:base]}notifications/#{device.notification_id}?access_token=#{@user.access_token}", "delete")
+  end
+
   def create_notification(device)
     return process("#{Sensit::PATHS[:base]}notifications?access_token=#{@user.access_token}", "put", {
       template: "Notification",
@@ -56,6 +60,8 @@ class Sensit
         Net::HTTP::Post.new(uri)
       elsif method == 'put'
         Net::HTTP::Put.new(uri)
+      elsif method == 'delete'
+        Net::HTTP::Delete.new(uri)
       end
 
       request['Content-type'] = 'application/json'
