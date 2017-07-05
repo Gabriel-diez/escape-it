@@ -9,10 +9,12 @@
 <% end %>
 <% @games.each do |game| %>
   <div class="panel panel-default">
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow=<%= game.total_steps_success %> aria-valuemin="0" aria-valuemax=<%= game.total_steps %> style=<%= "width:#{game.success_percentage}%" %>>
-    </div>
-    </div>
+    <% if game.started %>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow=<%= game.total_steps_success %> aria-valuemin="0" aria-valuemax=<%= game.total_steps %> style=<%= "width:#{game.success_percentage}%" %>>
+        </div>
+      </div>
+    <% end %>
     <div class="panel-body">
       <h3><%= game.name %></h3>
       <ul class="list-group">
@@ -26,7 +28,7 @@
       </ul>
     </div>
     <div class="panel-footer">
-      <div class="pull-left">
+      <div class="pull-left game-icon">
         <%= link_to 'Ajouter une étape', new_game_step_path(game_id: game.id) %>
       </div>
       <div class="pull-right game-icon">
