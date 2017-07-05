@@ -8,13 +8,11 @@
   </div>
 <% end %>
 <% @games.each do |game| %>
-  <div class="panel panel-default">
-    <% if game.started %>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow=<%= game.total_steps_success %> aria-valuemin="0" aria-valuemax=<%= game.total_steps %> style=<%= "width:#{game.success_percentage}%" %>>
-        </div>
+  <div class="panel panel-default" id="game-<%= game.id %>">
+    <div class="progress <%= game.started ? '' : 'hidden' %>">
+      <div class="progress-bar" role="progressbar" aria-valuenow=<%= game.total_steps_success %> aria-valuemin="0" aria-valuemax=<%= game.total_steps %> style=<%= "width:#{game.success_percentage}%" %>>
       </div>
-    <% end %>
+    </div>
     <div class="panel-body">
       <div class="pull-right">
         <%= link_to new_game_step_path(game_id: game.id), class: 'btn btn-primary' do %>

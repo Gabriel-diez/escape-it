@@ -19,7 +19,7 @@ class DevicesController < ApplicationController
   end
 
   def validate
-    @step.devices.find(params[:device_id]).update(valid: true)
+    @step.devices.find(params[:device_id]).update(valid: true) if @game.started
   end
 
   def create
@@ -68,6 +68,6 @@ class DevicesController < ApplicationController
     end
 
     def step_params
-      params.require(:device).permit(:sensor_id, :device_id)
+      params.require(:device).permit(:sensor_id, :device_id, :value)
     end
 end

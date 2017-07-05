@@ -3,11 +3,11 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Retour
   <% end %>
-  <%= link_to game_step_path(@game, @step), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-info-sign"></span>
-    Voir
+  <%= link_to game_step_devices_path(game_id: @game.id, step_id: @step.id), class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Voir les appareils associés
   <% end %>
-  <h1>Editer l'étape</h1>
+  <h1>Editer l'énigme</h1>
 </div>
 
 <%= render 'form' %>
