@@ -34,7 +34,7 @@ class Game < ApplicationRecord
 
   def start
     steps.each do |step|
-      step.devices.each do |device| 
+      step.devices.each do |device|
         device.update(notification_id: Sensit.new(user).create_notification(device))
       end
     end
@@ -44,8 +44,8 @@ class Game < ApplicationRecord
   def reset
     steps.each do |step|
       step.devices.each { |device| Sensit.new(user).delete_notification(device) }
+      step.devices.update_all(is_ok: false)
     end
-    steps.update_all(finished: false)
     self.update(started: false)
   end
 

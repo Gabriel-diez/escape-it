@@ -73,6 +73,6 @@ class StepsController < ApplicationController
     end
 
     def step_params
-      params.require(:step).permit(:name, :finished, :game_id, devices_attributes: [:sensor_id, :device_id])
+      params.require(:step).permit(:name, :is_validated, :game_id, devices_attributes: [:sensor_id, :device_id])
     end
 end
