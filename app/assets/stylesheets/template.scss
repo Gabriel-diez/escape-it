@@ -1,0 +1,60 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+
+$nav-blue-indigo : #242b53 !default;
+$template-dark: #141414 !default;
+
+// Main navbar
+// Reset main navbar basics
+$navbar-main-color:                      lighten($nav-blue-indigo, 15%) !default;
+$navbar-main-bg:                         #222 !default;
+$navbar-main-border:                     darken($navbar-main-color, 30%) !default;
+
+.navbar-main,.btn {
+  background-color: $nav-blue-indigo;
+  border-color: $template-dark;
+
+  #menu-nav-home {
+    color: whitesmoke;
+  }
+
+  #menu-nav-home:hover {
+    background-color: #333;
+
+  }
+}
+
+.navbar-text {
+  padding-right: 10px;
+}
+
+
+input, td, .panel-title {
+  color: #2E2F30;
+}
+
+.nav {
+  .menu-nav {
+    a {
+      color: whitesmoke;
+
+      .glyphicon-user {
+        font-size: 1.4em;
+      }
+    }
+    a:hover {
+      background-color: #333;
+    }
+  }
+}
+
+body {
+  .btn {
+    color: whitesmoke;
+  }
+}

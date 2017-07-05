@@ -16,6 +16,12 @@
       </div>
     <% end %>
     <div class="panel-body">
+      <div class="pull-right">
+        <%= link_to new_game_step_path(game_id: game.id), class: 'btn btn-primary' do %>
+            <span class="glyphicon glyphicon-plus pull"></span>
+            Ajouter une étape
+        <% end %>
+      </div>
       <h3><%= game.name %></h3>
       <ul class="list-group">
         <% game.steps.each do |step| %>
@@ -23,14 +29,15 @@
             <%= step.name %>
             <span class="<%= step.finished && "glyphicon glyphicon-ok" %>">
             </span>
-          </li>
+            <div class="pull-right">
+              <%= link_to '', edit_game_step_path(game,step), :class => "glyphicon glyphicon-pencil"%>
+              <%= link_to '', game_step_path(game, step), method: :delete, data: { confirm: 'Voulez vous vraiment supprimer cette partie ?' }, :class => "glyphicon glyphicon-remove", title: 'Supprimer', alt: 'Supprimer' %>
+            </div>
+            </li>
         <% end %>
       </ul>
     </div>
     <div class="panel-footer">
-      <div class="pull-left game-icon">
-        <%= link_to 'Ajouter une étape', new_game_step_path(game_id: game.id) %>
-      </div>
       <div class="pull-right game-icon">
         <%= link_to '', game_start_path(game), :class => "glyphicon glyphicon-triangle-right", remote: true, method: :post, title: 'Start', alt: 'Start' %>
         <%= link_to '', game_reset_path(game), method: :post, :class => "glyphicon glyphicon-repeat", title: 'Reinitialiser', alt: 'Reinitialiser' %>

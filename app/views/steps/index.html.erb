@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     Créer une énigme
   <% end %>
-  <h1>Les énigmes de <%= @game.name %></h1>
+  <h1>Les énigmes de <%= @game %></h1>
 </div>
 
 <div class="table-responsive">
@@ -12,7 +12,6 @@
       <tr>
           <th>Nom de l'énigme</th>
           <th>Terminé</th>
-          <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -31,3 +30,8 @@
     </tbody>
   </table>
 </div>
+
+<%= link_to games_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Retour
+<% end %>
