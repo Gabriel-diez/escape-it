@@ -29,8 +29,11 @@
             <%= step.name %>
             <span class="<%= step.finished && "glyphicon glyphicon-ok" %>">
             </span>
-            <%= link_to '<span class="glyphicon glyphicon-pencil pull-right" aria-hidden="true"></span>'.html_safe, edit_game_step_path(game,step) %>
-          </li>
+            <div class="pull-right">
+              <%= link_to '', edit_game_step_path(game,step), :class => "glyphicon glyphicon-pencil"%>
+              <%= link_to '', game_step_path(game, step), method: :delete, data: { confirm: 'Voulez vous vraiment supprimer cette partie ?' }, :class => "glyphicon glyphicon-remove", title: 'Supprimer', alt: 'Supprimer' %>
+            </div>
+            </li>
         <% end %>
       </ul>
     </div>

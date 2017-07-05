@@ -58,7 +58,7 @@ class StepsController < ApplicationController
   def destroy
     @step.destroy
     respond_to do |format|
-      format.html { redirect_to steps_url, notice: 'Step was successfully destroyed.' }
+      format.html { redirect_to games_path, notice: 'Step was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
