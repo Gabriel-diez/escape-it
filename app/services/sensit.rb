@@ -33,6 +33,8 @@ class Sensit
       template: "Notification",
       trigger: {
         id_device: device.device_id,
+        id_sensor: device.sensor_id,
+        value: device.value,
         type: "GENERIC_PUNCTUAL",
       },
       connector: {
