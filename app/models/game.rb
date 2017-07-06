@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  started    :boolean          default(FALSE)
+#  started_at :datetime
 #
 
 class Game < ApplicationRecord
