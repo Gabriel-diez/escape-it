@@ -48,10 +48,15 @@
       </div>
     </div>
     <div class="panel-footer">
+      <div class="pull-left game-icon">
+        <% if game.started %><button class="btn btn-default datestarted" data-time="<%= game.started_at %>"> </button><% end %>
+      </div>
       <div class="pull-right game-icon">
-        <%= link_to game_start_path(game), class: "btn btn-default", remote: true, method: :post, title: 'Start', alt: 'Start' do %>
-          <span class="glyphicon glyphicon-triangle-right"></span>
-          Démarrer le jeu
+        <% unless game.started %>
+          <%= link_to game_start_path(game), class: "btn btn-default start-game", remote: true, method: :post, title: 'Start', alt: 'Start' do %>
+            <span class="glyphicon glyphicon-triangle-right"></span>
+            Démarrer le jeu
+          <% end %>
         <% end %>
         <%= link_to game_reset_path(game), method: :post, title: 'Reinitialiser', alt: 'Reinitialiser', class: "btn btn-default" do %>
           <span class="glyphicon glyphicon-repeat"></span>
