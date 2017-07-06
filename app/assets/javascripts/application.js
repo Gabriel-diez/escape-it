@@ -16,4 +16,6 @@
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-material-design
+//= require moment
+//= require moment/fr.js
 //= require_tree .
