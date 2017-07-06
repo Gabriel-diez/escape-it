@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+Step = 
+	init: ->
+		$(document).on 'click', '.game-step h4', this.toggleActions.bind this
+
+	toggleActions: (element) ->
+		$(element.target).parent('.game-step').find('.game-actions').slideToggle();
+
+
+$(document).ready ->
+	Step.init()
