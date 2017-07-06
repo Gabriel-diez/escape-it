@@ -56,6 +56,9 @@ class StepsController < ApplicationController
   # DELETE /steps/1
   # DELETE /steps/1.json
   def destroy
+    @step.devices.each do |device|
+      Sensit.new(current_user).delete_notification(device) if !device.notification_id.nil?
+    end
     @step.destroy
     respond_to do |format|
       format.html { redirect_to games_path, notice: 'Step was successfully destroyed.' }

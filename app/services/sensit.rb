@@ -71,7 +71,8 @@ class Sensit
 
       response = http.request(request).body
       Rails.logger.error response
-      JSON.parse(response)
+
+      response && response.length > 2 ? JSON.parse(response) : nil
     end
   end
 
