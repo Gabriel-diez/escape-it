@@ -1,7 +1,9 @@
 // Place all the styles related to the Games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+nav {
+    overflow: hidden;
+}
 .progress {
   margin-bottom: 0px;
   background-color: #F8F9FA;
@@ -11,6 +13,17 @@
   a {
     padding: 5px 10px;
   }
+}
+@media all and (min-width: 770px) {
+    // .tnav,.navbar,.container { height: 28px; }
+}
+#menu-nav-home {
+    position: absolute;
+    left: 40px;
+    top: 10px;
+    &:hover {
+        background-color: transparent;
+    }
 }
 .game-meta-container {
 	margin-bottom: 15px;
