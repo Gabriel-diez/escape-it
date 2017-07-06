@@ -14,8 +14,10 @@ nav {
     padding: 5px 10px;
   }
 }
-@media all and (min-width: 770px) {
-    // .tnav,.navbar,.container { height: 28px; }
+.navbar .navbar-nav>li>a {
+    font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 15px;
 }
 #menu-nav-home {
     position: absolute;
