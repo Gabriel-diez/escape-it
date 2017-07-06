@@ -1,1 +1,60 @@
-Ceci est un super projet Dawin.
+<div class="container homepage">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 ">
+      <h1>Bienvenue sur Escape'it !</h1>
+      <h2>
+        <small>
+          Ici vous pouvez créer et gérer des jeux de type "Escape Game"
+          ou "Chasse au trésor" par exemple en utilisant les Sens'it et le réseau SygFox
+          vous permettant de jouer n'importe où vous le voulez.  <br/>
+          Créer votre jeu en laissant libreicours à votre imagination !
+        </small>
+      </h2>
+
+      <div class="interlign middle mini"></div>
+      <div class="interblock-black"></div>
+      <div class="page-header interlign">
+        <h2>Première visite ? </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-md-offset-1 vcenter">
+          <p>
+            <strong>1.</strong> Se rendre sur le site de <%= link_to "Sens'it", "https://www.sensit.io/", title: 'https://www.sensit.io/', target: :_blank %> et y créer un compte.
+          </p>
+          <p>
+            <strong>2.</strong> Ajouter vos Sens'it en rentrant le code se trouvant derrière chaque boîtier.
+          </p>
+          <p>
+            <strong>3.</strong> Créer une app dans l'<%= link_to "API", "https://api.sensit.io/", title: 'https://api.sensit.io/', target: :_blank %> après vous être connecté.
+          </p>
+        </div>
+        <div class="col-md-7 vcenter ">
+          <div class="embed-responsive embed-responsive-16by9 video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/RHfkPlDPaek" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="interlign middle"></div>
+      <div class="interblock-black"></div>
+      <div class="row">
+        <div class="col-md-7 col-md-offset-1 vcenter">
+          <div class="embed-responsive embed-responsive-16by9 video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Us0rYD6kjKo" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-3 vcenter">
+
+          <p>
+            <strong>4.</strong> <%= link_to "Créer une nouvelle partie", new_game_url %> donner lui un nom et créer le jeu.
+          </p>
+          <p>
+            <strong>5.</strong> Ajouter ensuite une première énigme en lui donnant un nom et une description. Vous pouvez en ajouter autant que vous voulez dans votre partie.
+          </p>
+          <p>
+            <strong>6.</strong> Cliquez ensuite sur "Ajouter un Sens'it", sélectionner le boîtier souhaité et le capteur à activer pour l'énigme.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
