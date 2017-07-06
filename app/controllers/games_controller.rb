@@ -67,7 +67,7 @@ class GamesController < ApplicationController
 
   def reset
     if @game.reset
-      redirect_to games_path
+      redirect_to games_path ,notice: 'La partie a bien été réinitialisée'
     end
   end
 
