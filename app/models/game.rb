@@ -39,7 +39,7 @@ class Game < ApplicationRecord
         device.update(notification_id: Sensit.new(user).create_notification(device))
       end
     end
-    self.update(started: true)
+    self.update(started: true, started_at: Time.now)
   end
 
   def reset

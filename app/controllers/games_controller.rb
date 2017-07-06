@@ -6,7 +6,7 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     if params[:search]
-      @games = Game.search(params[:search]).order(started: :desc)
+      @games = current_user.games.search(params[:search]).order(started: :desc)
     else
       @games = current_user.games.all.order(started: :desc)
     end
@@ -62,12 +62,12 @@ class GamesController < ApplicationController
   end
 
   def start
-    @game.start
+    @game.start unless @game.started
   end
 
   def reset
     if @game.reset
-      redirect_to games_path ,notice: 'La partie a bien été réinitialisée'
+      redirect_to games_path, notice: 'La partie a bien été réinitialisée'
     end
   end
 
