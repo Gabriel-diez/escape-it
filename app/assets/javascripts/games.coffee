@@ -5,6 +5,19 @@ GameTimer =
 			$('.datestarted').html('Démarré ' + moment(Date.parse(date)).fromNow())
 		, 1000)
 
+Search = 
+	init: ->
+		$('#search-form, #search').on 'submit, change, keydown', this.process.bind(this)
+
+	process: (event) ->
+		event.preventDefault() if event.keyCode == 13
+		return if $('#search').val().length < 2
+		$.ajax
+			url: "/games?search=#{$('#search').val()}",
+			dataType: "script",
+			type: "GET"
+
+
 
 Game =
 	init: ->
@@ -26,3 +39,4 @@ Game =
 $(document).ready ->
 	GameTimer.init()
 	Game.init()
+	Search.init()

@@ -21,17 +21,18 @@
             <div class="game-step <%= step.is_validated? && "active" %>" >
               <h4><%= step.name %></h4>
               <hr>
-              <h5><%= step.description %></h5>
+              <p><%= step.description %></p>
+              <hr>
               <div class="game-actions">
-                <%= link_to game_step_devices_path(game_id: game.id, step_id: step.id), class: 'btn btn-primary' do %>
+                <%= link_to game_step_devices_path(game_id: game.id, step_id: step.id), class: 'btn btn-default' do %>
                   <span class="glyphicon glyphicon-list-alt"></span>
                   Sensit associés
                 <% end %>
-                <%= link_to edit_game_step_path(game,step), class: "btn btn-primary" do %>
+                <%= link_to edit_game_step_path(game,step), class: "btn btn-default" do %>
                   <span class="glyphicon glyphicon-list-alt"></span>
                   Modifier
                 <% end %>
-                <%= link_to game_step_path(game, step), method: :delete, data: { confirm: 'Voulez vous vraiment supprimer cette partie ?' }, :class => "btn btn-primary", title: 'Supprimer', alt: 'Supprimer' do %>
+                <%= link_to game_step_path(game, step), method: :delete, data: { confirm: 'Voulez vous vraiment supprimer cette partie ?' }, :class => "btn btn-default", title: 'Supprimer', alt: 'Supprimer' do %>
                   <span class="glyphicon glyphicon-list-alt"></span>
                     Supprimer
                 <% end %>

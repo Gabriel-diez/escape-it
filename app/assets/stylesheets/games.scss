@@ -12,9 +12,22 @@
     padding: 5px 10px;
   }
 }
-
+.game-meta-container {
+	margin-bottom: 15px;
+}
+#search {
+	font-size: 20px;
+}
+#search-button {
+	color: #00aa9a;
+	&:hover {
+		box-shadow: none;
+		color: #555;
+	}
+}
 .search-bar {
-  margin-bottom: 1rem;
+    margin: 25px 0px;
+    width: 100%;
 }
 .game-steps {
 	padding-top: 30px;
@@ -25,6 +38,20 @@
     position: relative;
     width: 100%;
     margin-bottom: 20px;
+    h4 {
+    	font-weight: 400;
+    	text-transform: uppercase;
+    }
+    hr:last-of-type {
+    	margin-bottom: 0px;
+    }
+    a {
+    	color: #00aa9a !important;
+    }
+    p {
+    	font-size: 95%;
+    	color: #999;
+    }
 	&:first-child {
 		&:before {
 			display: none;
