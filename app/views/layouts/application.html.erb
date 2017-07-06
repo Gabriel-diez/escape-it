@@ -43,7 +43,13 @@
             <%= user_signed_in? ? link_to("Deconnexion", destroy_user_session_path, method: :delete) : link_to("Connexion" , new_user_session_path) %>
           </li>
           <li class="menu-nav">
-            <%= link_to '<span class="glyphicon glyphicon-user" aria-hidden="true"></span>'.html_safe, edit_user_registration_url %>
+            <% if user_signed_in? %>
+              <%= link_to edit_user_registration_url do %>
+                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <% end %>
+            <% else %>
+              <%= link_to 'Inscription',new_user_registration_url %>
+            <% end %>
           </li>
         </ul>
       </div>
