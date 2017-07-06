@@ -33,13 +33,18 @@ class Sensit
   end
 
   def create_notification(device)
+    notification_type = "GENERIC_PUNCTUAL"
+    if device.sensor_type == 'light' || device.sensor_type == 'temperature_humidity'
+      notification_type = "GENERIC_REGULAR"
+    end
+
     return process("#{Sensit::PATHS[:base]}notifications?access_token=#{@user.access_token}", "put", {
       template: "Notification",
       trigger: {
         id_device: device.device_id,
         id_sensor: device.sensor_id,
         value: device.value,
-        type: "GENERIC_PUNCTUAL",
+        type: notification_type,
       },
       connector: {
         data: Rails.application.routes.url_helpers.game_step_device_validate_url(step_id: device.step.id, game_id: device.step.game.id, device_id: device.id),
