@@ -46,11 +46,4 @@
 	&.active {
 		background-color: rgba(30, 185, 120, 0.09);
 	}
-	.game-actions {
-		display: none;
-
-		&.active {
-			display: block;
-		}
-	}
 }
