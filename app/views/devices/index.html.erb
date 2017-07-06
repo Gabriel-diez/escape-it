@@ -15,6 +15,7 @@
             <th>Capteur</th>
             <th>ID de l'appareil</th>
             <th>État du capteur</th>
+            <th>Capteur actif</th>
         <th></th>
         <th></th>
       </tr>
@@ -26,6 +27,7 @@
           <td><%= device.sensor_id %></td>
           <td><%= device.device_id %></td>
           <td><%= device.is_ok ? "OK" : "KO" %></td>
+          <td><%= device.sensor_type %></td>
           <td><%= link_to 'Modifier', edit_game_step_device_path(game_id: @game.id, step_id: @step.id, id: device.id) %></td>
           <td><%= link_to 'Supprimer', game_step_device_path(game_id: @game.id, step_id: @step.id, id: device.id), method: :delete, data: { confirm: 'Êtes-vous sûr(e) ?' } %></td>
         </tr>

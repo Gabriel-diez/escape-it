@@ -24,6 +24,8 @@
       <%= f.select :sensor_id, [], class: "sensor-id-select form-control" %>
     </div>
   </div>
+    <%= f.hidden_field :sensor_type, id: "sensor_type" %>
+
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit class: "btn btn-primary" %>

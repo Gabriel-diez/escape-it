@@ -2,6 +2,7 @@ Device =
 	init: ->
 		this.fetch_sensors_list()
 		$(document).on 'change', '#device_device_id', this.fetch_sensors_list
+		$(document).on 'change', '#device_sensor_id', this.update_sensor_type
 
 	fetch_sensors_list: ->
 		game_id = $('#device_device_id').data 'game-id'
@@ -15,8 +16,10 @@ Device =
 		$('#device_sensor_id').html ''
 		response.forEach (sensor) ->
 			$('#device_sensor_id').append "<option value='#{sensor.id}'>#{sensor.sensor_type}</option>"
+		$('#sensor_type').val($('#device_sensor_id option:first').text())
 
-    
+	update_sensor_type: ->
+		$('#sensor_type').val($('option:selected', this).text())
 
 document.addEventListener "turbolinks:load", ->
 	Device.init()

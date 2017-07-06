@@ -69,6 +69,6 @@ class DevicesController < ApplicationController
     end
 
     def step_params
-      params.require(:device).permit(:sensor_id, :device_id, :value)
+      params.require(:device).permit(:sensor_id, :device_id, :value, :sensor_type)
     end
 end
