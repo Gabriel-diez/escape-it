@@ -16,4 +16,7 @@
 class Device < ApplicationRecord
   belongs_to :step
   validates :sensor_id, :device_id, presence: true
+  after_create do
+    self.update(notification_id: Sensit.new(step.game.user).create_notification(self)) if step.game.started
+  end
 end

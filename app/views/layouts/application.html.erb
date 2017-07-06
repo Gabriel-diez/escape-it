@@ -55,6 +55,7 @@
       </div>
     </div>
   </nav>
+  <%= image_tag("oval.svg", :alt => "loadingSpinner", :id => "loadingSpinner", class: 'hidden') %>
   <div class="container">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>

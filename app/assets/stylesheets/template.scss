@@ -21,11 +21,6 @@ $navbar-main-border:                     darken($navbar-main-color, 30%) !defaul
   #menu-nav-home {
     color: whitesmoke;
   }
-
-  #menu-nav-home:hover {
-    background-color: #333;
-
-  }
 }
 .navbar-text {
   padding-right: 10px;
@@ -59,6 +54,10 @@ body {
 
 .navbar-toggle {
   span {
-    background-color: whitesmoke !important;
+    background-color: whitesmoke;
   }
+}
+
+#loadingSpinner {
+  position: fixed;
 }

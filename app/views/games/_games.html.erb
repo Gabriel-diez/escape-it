@@ -1,0 +1,68 @@
+<% @games.each do |game| %>
+  <div class="panel panel-default game" id="game-<%= game.id %>">
+    <div class="progress <%= game.started ? '' : 'hidden' %>">
+      <div class="progress-bar" role="progressbar" aria-valuenow=<%= game.total_steps_success %> aria-valuemin="0" aria-valuemax=<%= game.total_steps %> style=<%= "width:#{game.success_percentage}%" %>>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="pull-right">
+        <%= link_to new_game_step_path(game_id: game.id), class: 'btn btn-primary' do %>
+            <span class="glyphicon glyphicon-plus pull"></span>
+            Ajouter une étape
+        <% end %>
+      </div>
+      <h3><%= game.name %></h3>
+      <hr>
+      <div class="game-steps">
+        <% if game.steps.empty? %>
+          <h4 class="text-center">Votre jeu n'a pour le moment aucune étape</h4>
+        <% end -%>
+        <% game.steps.each do |step| %>
+            <div class="game-step <%= step.is_validated? and "active" %>" >
+              <h4><%= step.name %></h4>
+              <div class="game-actions">
+                <%= link_to game_step_devices_path(game_id: game.id, step_id: step.id), class: 'btn btn-primary' do %>
+                  <span class="glyphicon glyphicon-list-alt"></span>
+                  Sensit associés
+                <% end %>
+                <%= link_to edit_game_step_path(game,step), class: "btn btn-primary" do %>
+                  <span class="glyphicon glyphicon-list-alt"></span>
+                  Modifier
+                <% end %>
+                <%= link_to game_step_path(game, step), method: :delete, data: { confirm: 'Voulez vous vraiment supprimer cette partie ?' }, :class => "btn btn-primary", title: 'Supprimer', alt: 'Supprimer' do %>
+                  <span class="glyphicon glyphicon-list-alt"></span>
+                    Supprimer
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <div class="pull-left game-icon">
+        <% if game.started %><button class="btn btn-default datestarted" data-time="<%= game.started_at %>"> </button><% end %>
+      </div>
+      <div class="pull-right game-icon">
+        <% unless game.started %>
+          <%= link_to game_start_path(game), class: "btn btn-default start-game", remote: true, method: :post, title: 'Start', alt: 'Start' do %>
+            <span class="glyphicon glyphicon-triangle-right"></span>
+            Démarrer le jeu
+          <% end %>
+        <% end %>
+        <%= link_to game_reset_path(game), method: :post, title: 'Reinitialiser', alt: 'Reinitialiser', class: "btn btn-default" do %>
+          <span class="glyphicon glyphicon-repeat"></span>
+          Réinitialiser
+        <% end %>
+        <%= link_to edit_game_path(game), title: 'Editer', class: 'btn btn-default', alt: 'Editer' do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          Modifier
+        <% end %>
+        <%= link_to game, method: :delete, class: 'btn btn-default', data: { confirm: 'Voulez vous vraiment supprimer cette partie ?' }, title: 'Supprimer', alt: 'Supprimer' do %>
+          <span class="glyphicon glyphicon-remove"></span>
+          Supprimer
+        <% end %>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+<% end %>
