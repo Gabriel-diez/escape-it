@@ -54,6 +54,7 @@ class GamesController < ApplicationController
   # DELETE /games/1
   # DELETE /games/1.json
   def destroy
+    @game.reset
     @game.destroy
     respond_to do |format|
       format.html { redirect_to games_url, notice: 'La partie a bien été supprimée' }
