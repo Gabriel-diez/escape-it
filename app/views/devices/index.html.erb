@@ -1,4 +1,4 @@
-<%= link_to "Retour au jeu", edit_game_path(@game) %>
+<%= link_to "Retour au jeu", game_steps_path(@game), class: 'btn btn-default' %>
 
 <div class="page-header">
   <%= link_to new_game_step_device_path(game_id: @game.id, step_id: @step.id), class: 'btn btn-primary' do %>
