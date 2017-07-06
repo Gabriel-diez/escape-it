@@ -18,7 +18,7 @@
           <h4 class="text-center">Votre jeu n'a pour le moment aucune étape</h4>
         <% end -%>
         <% game.steps.each do |step| %>
-            <div class="game-step <%= step.is_validated? and "active" %>" >
+            <div class="game-step <%= step.is_validated? && "active" %>" >
               <h4><%= step.name %></h4>
               <hr>
               <h5><%= step.description %></h5>
