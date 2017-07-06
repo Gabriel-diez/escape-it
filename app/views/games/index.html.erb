@@ -7,6 +7,9 @@
     </span>
   </div>
 <% end %>
-<%= render "games" %>
+
+<div id="games-wrapper">
+  <%= render "games" %>
+</div>
 
 <%= link_to 'Ajouter une partie', new_game_path, class: 'btn btn-default' %>
