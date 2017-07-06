@@ -21,7 +21,8 @@ class Game < ApplicationRecord
   end
 
   def success_percentage
-    total_steps_success == 0 ? 0 : 100/(total_steps/total_steps_success)
+    percentage = Float(total_steps_success) / total_steps * 100
+    percentage.round(2)
   end
 
   def total_steps_success
