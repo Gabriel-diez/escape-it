@@ -25,8 +25,12 @@
   <% if devise_mapping.rememberable? -%>
     <div class="col-sm-10 margin">
       <div class="form-group">
-        <%= f.check_box :remember_me %>
-        <%= f.label "Se souvenir de moi" %>
+        <div class="col-sm-2">
+          <%= f.check_box :remember_me %>
+        </div>
+        <div class="col-sm-10">
+          <%= f.label "Se souvenir de moi" %>
+        </div>
       </div>
     </div>
   <% end -%>
@@ -39,5 +43,6 @@
     </div>
   </div>
 <% end %>
+<div class="clearfix"></div>
 
 <%= render "devise/shared/links" %>
