@@ -62,7 +62,11 @@ class GamesController < ApplicationController
   end
 
   def start
-    @game.start unless @game.started
+    if @game.started
+      redirect_to games_path, notice: 'La partie est déjà en cours. Réinitialisé la pour la redemarrer'
+    elsif @game.start
+      redirect_to games_path, notice: 'La partie a bien été lancée'
+    end
   end
 
   def reset

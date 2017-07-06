@@ -44,7 +44,7 @@
       </div>
       <div class="pull-right game-icon">
         <% unless game.started %>
-          <%= link_to game_start_path(game), class: "btn btn-default start-game", remote: true, method: :post, title: 'Start', alt: 'Start' do %>
+          <%= link_to game_start_path(game), class: "btn btn-default start-game", method: :post, title: 'Start', alt: 'Start' do %>
             <span class="glyphicon glyphicon-triangle-right"></span>
             Démarrer le jeu
           <% end %>
