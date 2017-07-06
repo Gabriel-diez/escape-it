@@ -28,7 +28,7 @@ class DevicesController < ApplicationController
 
     respond_to do |format|
       if @device.save
-        format.html { redirect_to game_steps_path, notice: 'Device was successfully created.' }
+        format.html { redirect_to game_steps_path, notice: 'Sensit correctement créé.' }
         format.json { render :show, status: :created, location: @step }
       else
         format.html { render :new }
@@ -40,7 +40,7 @@ class DevicesController < ApplicationController
   def update
     respond_to do |format|
       if @device.update(step_params)
-        format.html { redirect_to game_steps_path, notice: 'Step was successfully updated.' }
+        format.html { redirect_to game_steps_path, notice: 'Sensit mis à jour.' }
         format.json { render :show, status: :ok, location: @step }
       else
         format.html { render :edit }
@@ -52,7 +52,7 @@ class DevicesController < ApplicationController
   def destroy
     @device.destroy
     respond_to do |format|
-      format.html { redirect_to steps_url, notice: 'Step was successfully destroyed.' }
+      format.html { redirect_to steps_url, notice: 'Sensit supprimé' }
       format.json { head :no_content }
     end
   end

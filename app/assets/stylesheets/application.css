@@ -14,3 +14,4 @@
  *= require_self
  *= require bootstrap-material-design
  */
+ .alert-success { background-color: #009688 !important; }

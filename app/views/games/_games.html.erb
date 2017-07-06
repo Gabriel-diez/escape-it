@@ -20,6 +20,7 @@
         <% game.steps.each do |step| %>
             <div class="game-step <%= step.is_validated? and "active" %>" >
               <h4><%= step.name %></h4>
+              <hr>
               <h5><%= step.description %></h5>
               <div class="game-actions">
                 <%= link_to game_step_devices_path(game_id: game.id, step_id: step.id), class: 'btn btn-primary' do %>
