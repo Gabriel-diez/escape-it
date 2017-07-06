@@ -28,6 +28,7 @@ class DevicesController < ApplicationController
 
     respond_to do |format|
       if @device.save
+        Sensit.new(current_user).create_notification(@device) if @game.started
         format.html { redirect_to game_steps_path, notice: 'Device was successfully created.' }
         format.json { render :show, status: :created, location: @step }
       else
