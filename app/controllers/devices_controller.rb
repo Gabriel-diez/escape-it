@@ -52,7 +52,7 @@ class DevicesController < ApplicationController
   def destroy
     @device.destroy
     respond_to do |format|
-      format.html { redirect_to steps_url, notice: 'Sensit supprimé' }
+      format.html { redirect_to game_steps_devices_path(game_id: @game.id, step_id: @step.id), notice: 'Sensit supprimé' }
       format.json { head :no_content }
     end
   end
