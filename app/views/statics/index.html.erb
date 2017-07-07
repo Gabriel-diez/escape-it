@@ -3,7 +3,7 @@
     <div class="col-md-10 col-md-offset-1 ">
       <h1>Bienvenue sur Escape'it !</h1>
       <h4>
-          Ici vous pouvez créer et gérer des jeux de type "Escape Game", "Chasse au trésor", "Course d'orientation" en utilisant les Sens'it et le réseau SygFox
+          Ici vous pouvez créer et gérer des jeux de type "Escape Game", "Chasse au trésor", "Course d'orientation" en utilisant les Sens'it et le réseau Sigfox
           vous permettant de jouer n'importe où vous le voulez.  <br/>
           Créer votre jeu en laissant libre cours à votre imagination !
       </h4>
@@ -14,7 +14,7 @@
         <h2>Première visite ? </h2>
       </div>
       <div class="row">
-        <div class="col-md-3 col-md-offset-1 vcenter">
+        <div class="col-md-3 col-md-offset-1 col-xs-12 vcenter">
           <p>
             <strong>1.</strong> Se rendre sur le site de <%= link_to "Sens'it", "https://www.sensit.io/", title: 'https://www.sensit.io/', target: :_blank %> et y créer un compte.
           </p>
@@ -22,25 +22,24 @@
             <strong>2.</strong> Ajouter vos Sens'it en rentrant le code se trouvant derrière chaque boîtier.
           </p>
           <p>
-            <strong>3.</strong> Créer une app dans l'<%= link_to "API", "https://api.sensit.io/", title: 'https://api.sensit.io/', target: :_blank %> après vous être connecté.
+            <strong>3.</strong> Créer une app dans l'<%= link_to "API", "https://api.sensit.io/", title: 'https://api.sensit.io/', target: :_blank %> après vous être connecté avec pour url de redirection : https://escape-it.herokuapp.com/callback
           </p>
         </div>
-        <div class="col-md-7 vcenter ">
+        <div class="col-md-7 vcenter col-xs-12">
           <div class="embed-responsive embed-responsive-16by9 video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/RHfkPlDPaek" frameborder="0" allowfullscreen></iframe>
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/RHfkPlDPaek" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
       </div>
       <div class="interlign middle"></div>
       <div class="interblock-black"></div>
       <div class="row">
-        <div class="col-md-7 col-md-offset-1 vcenter">
+        <div class="col-md-7 col-md-offset-1 col-xs-12 vcenter">
           <div class="embed-responsive embed-responsive-16by9 video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Us0rYD6kjKo" frameborder="0" allowfullscreen></iframe>
+            <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/Us0rYD6kjKo" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
-        <div class="col-md-3 vcenter">
-
+        <div class="col-md-3 vcenter col-xs-12">
           <p>
             <strong>4.</strong> <%= link_to "Créer une nouvelle partie", new_game_url %> donner lui un nom et créer le jeu.
           </p>
