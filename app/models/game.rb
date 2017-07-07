@@ -54,4 +54,9 @@ class Game < ApplicationRecord
   def to_s
     self.name
   end
+
+  def next_instruction
+    remaining_steps = self.steps.select { |s| !s.is_validated? }
+    remaining_steps.length ? remaining_steps[0] : nil
+  end
 end

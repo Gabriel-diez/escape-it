@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :games, except: :show do
+  resources :games do
     post 'start', as: :start
     post 'reset', as: :reset
     

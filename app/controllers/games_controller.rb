@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :show
   before_action :set_game, only: [:edit, :update, :destroy, :start, :reset]
 
   # GET /games
@@ -19,6 +19,10 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
+  end
+
+  def show
+    render json: Game.find(params[:id]).next_instruction
   end
 
   # POST /games
